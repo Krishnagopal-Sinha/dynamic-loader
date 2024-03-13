@@ -1,0 +1,9 @@
+@keyframes load {
+  0% {
+    stroke-dashoffset: var(--startingOffset, 0px);
+  }
+
+  100% {
+    stroke-dashoffset: var(--endingOffset, 4000px);
+  }
+}

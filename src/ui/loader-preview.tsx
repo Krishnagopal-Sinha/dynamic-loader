@@ -104,9 +104,8 @@ export default function LoaderPreview({ svgOption }: { svgOption: svgConfig }) {
               placeholder="//svg file"
               value={cleanFill.replace(
                 "<svg",
-                `<svg stroke="${svgOption.strokeColor}" fill="none"
-            "`
-              )}
+                `<svg stroke="${svgOption.strokeColor}" fill="none"`)
+              }
             />
           </div>
 

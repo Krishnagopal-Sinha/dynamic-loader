@@ -15,11 +15,8 @@ export default function LoaderPreview({ svgOption }: { svgOption: svgConfig }) {
       return `style="${cleanedStyleContent}"`;
     });
   }
-  let cleanedSvgString = cleanFillFromStyleAttribute(svgOption.svgHtml);
-  cleanedSvgString = cleanedSvgString
-    .replace(/\sfill="[^"]+"/g, "")
-    .replace(/\sfill='[^']+'/g, "");
-  let cleanFill = cleanedSvgString
+  let cleanFill = cleanFillFromStyleAttribute(svgOption.svgHtml);
+  cleanFill = cleanFill
     .replace(/\sfill="[^"]+"/gi, "")
     .replace(/\sfill='[^']+'/gi, "");
   cleanFill = cleanFill.replace(

@@ -93,9 +93,9 @@ export default function LoaderPreview({ svgOption }: { svgOption: svgConfig }) {
           <div>
             <label
               htmlFor="htmlCode"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-4"
+              className="block italic mb-2 text-sm font-medium text-gray-900 dark:text-white mt-4"
             >
-              SVG (Background Removed):
+              SVG (Background Removed)
             </label>
             <textarea
               id="htmlCode"
@@ -112,9 +112,9 @@ export default function LoaderPreview({ svgOption }: { svgOption: svgConfig }) {
           <div>
             <label
               htmlFor="htmlCode"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-4"
+              className="block italic mb-2 text-sm font-medium text-gray-900 dark:text-white mt-4"
             >
-              HTML:
+              HTML
             </label>
             <textarea
               id="htmlCode"
@@ -128,9 +128,9 @@ export default function LoaderPreview({ svgOption }: { svgOption: svgConfig }) {
           <div>
             <label
               htmlFor="cssCode"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-4"
+              className="block italic mb-2 text-sm font-medium text-gray-900 dark:text-white mt-4"
             >
-              CSS:
+              CSS
             </label>
             <textarea
               id="cssCode"

@@ -134,12 +134,12 @@ export default function ConfigPanel({
                 });
                 console.log(e.target.value);
               }}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-10  cursor-pointer disabled:opacity-50 disabled:pointer-events-none w-44"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-10  cursor-pointer disabled:opacity-50 disabled:pointer-events-none sm:w-44 w-full"
               placeholder="150"
               required
             />
           </div>
-          <div>
+          <div className="w-full sm:w-auto">
             <label
               htmlFor="strokeColor"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -155,7 +155,7 @@ export default function ConfigPanel({
                   draft["strokeColor"] = e.target.value;
                 });
               }}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-10  cursor-pointer disabled:opacity-50 disabled:pointer-events-none w-44"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-10  cursor-pointer disabled:opacity-50 disabled:pointer-events-none sm:w-44 w-full "
               placeholder="150"
               required
             />

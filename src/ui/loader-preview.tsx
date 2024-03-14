@@ -4,9 +4,11 @@ import "./loader.css";
 export default function LoaderPreview({ svgOption }: { svgOption: svgConfig }) {
   const [lightMode, setLightMode] = useState(false);
   //TODO: add line cap to config panel
-  const finalSvgHtml = svgOption.svgHtml.replace(
-    "<svg",
-    `<svg style="
+  //add styles dynamically
+  const finalSvgHtml = svgOption.svgHtml
+    .replace(
+      "<svg",
+      `<svg style="
   
       animation-name: loader;
       animation-iteration-count: infinite;
@@ -24,7 +26,8 @@ export default function LoaderPreview({ svgOption }: { svgOption: svgConfig }) {
       display:block;
       margin:auto;
 "`
-  );
+    )
+    .replace(/\sfill=[^>\s]+/gi, ""); //remove fill
 
   return (
     <div className="m-6 mb-0">

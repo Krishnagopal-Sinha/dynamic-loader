@@ -9,7 +9,7 @@ export default function ConfigPanel({
   setSvgOptions: any;
 }) {
   return (
-    <div className="mx-6 my-3">
+    <div className="mx-6 mt-3 mb-6">
       <form className="space-y-6" action="#">
         {/* max-w-sm mx-auto */}
         <h5 className="text-2xl font-semibold text-gray-900 dark:text-white">
@@ -32,8 +32,8 @@ export default function ConfigPanel({
             value={svgOption.svgHtml}
             onChange={(e) => {
               const sanitizedPath = DOMPurify.sanitize(e.target.value);
-              setSvgOptions((draft: any) => {
-                draft["svgHtml"] = e.target.value;
+              setSvgOptions((draft: svgConfig) => {
+                draft.svgHtml = e.target.value;
               });
             }}
           />
@@ -52,7 +52,7 @@ export default function ConfigPanel({
             id="animation-curve"
             value={svgOption.animationCurve}
             onChange={(e) => {
-              setSvgOptions((draft: any) => {
+              setSvgOptions((draft: svgConfig) => {
                 draft["animationCurve"] = e.target.value;
               });
             }}
@@ -68,7 +68,7 @@ export default function ConfigPanel({
         </div>
         {/* ============================= Loader height and width ============================= */}
 
-        <div className="flex justify-between">
+        <div className="flex flex-col sm:flex-row justify-between gap-4">
           <div>
             <label
               htmlFor="height"
@@ -82,8 +82,8 @@ export default function ConfigPanel({
               id="height"
               value={svgOption.height}
               onChange={(e) => {
-                setSvgOptions((draft: any) => {
-                  draft["height"] = e.target.value;
+                setSvgOptions((draft: svgConfig) => {
+                  draft.height = parseInt(e.target.value);
                 });
               }}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -103,8 +103,8 @@ export default function ConfigPanel({
               min="0"
               value={svgOption.width}
               onChange={(e) => {
-                setSvgOptions((draft: any) => {
-                  draft["width"] = e.target.value;
+                setSvgOptions((draft: svgConfig) => {
+                  draft.width = parseInt(e.target.value);
                 });
               }}
               id="width"
@@ -116,7 +116,7 @@ export default function ConfigPanel({
         </div>
 
         {/* ============================= Fill Color ============================= */}
-        <div className="flex justify-between">
+        <div className="flex flex-col sm:flex-row justify-between gap-4">
           <div>
             <label
               htmlFor="fillColor"
@@ -129,8 +129,8 @@ export default function ConfigPanel({
               id="fillColor"
               value={svgOption.fillColor}
               onChange={(e) => {
-                setSvgOptions((draft: any) => {
-                  draft["fillColor"] = e.target.value;
+                setSvgOptions((draft: svgConfig) => {
+                  draft.fillColor = e.target.value;
                 });
                 console.log(e.target.value);
               }}
@@ -151,7 +151,7 @@ export default function ConfigPanel({
               id="strokeColor"
               value={svgOption.strokeColor}
               onChange={(e) => {
-                setSvgOptions((draft: any) => {
+                setSvgOptions((draft: svgConfig) => {
                   draft["strokeColor"] = e.target.value;
                 });
               }}
@@ -164,7 +164,7 @@ export default function ConfigPanel({
 
         {/* ============================= Stroke width and animation duration ============================= */}
 
-        <div className="flex justify-between">
+        <div className="flex flex-col sm:flex-row justify-between gap-4">
           <div>
             <label
               htmlFor="animDuration"
@@ -178,8 +178,8 @@ export default function ConfigPanel({
               id="animDuration"
               value={svgOption.animationDuration}
               onChange={(e) => {
-                setSvgOptions((draft: any) => {
-                  draft["animationDuration"] = e.target.value;
+                setSvgOptions((draft: svgConfig) => {
+                  draft.animationDuration = parseInt(e.target.value);
                 });
               }}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -199,8 +199,8 @@ export default function ConfigPanel({
               min="0"
               value={svgOption.strokeWidth}
               onChange={(e) => {
-                setSvgOptions((draft: any) => {
-                  draft["strokeWidth"] = e.target.value;
+                setSvgOptions((draft: svgConfig) => {
+                  draft.strokeWidth = parseInt(e.target.value);
                 });
               }}
               id="strokeWidth"
@@ -213,7 +213,7 @@ export default function ConfigPanel({
 
         {/* ============================= Stroke width and animation duration ============================= */}
 
-        <div className="flex justify-between">
+        <div className="flex flex-col sm:flex-row justify-between gap-4">
           <div>
             <label
               htmlFor="startOffset"
@@ -227,8 +227,8 @@ export default function ConfigPanel({
               id="startOffset"
               value={svgOption.startOffset}
               onChange={(e) => {
-                setSvgOptions((draft: any) => {
-                  draft["startOffset"] = e.target.value;
+                setSvgOptions((draft: svgConfig) => {
+                  draft.startOffset = parseInt(e.target.value);
                 });
               }}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -248,8 +248,8 @@ export default function ConfigPanel({
               min="0"
               value={svgOption.endOffset}
               onChange={(e) => {
-                setSvgOptions((draft: any) => {
-                  draft["endOffset"] = e.target.value;
+                setSvgOptions((draft: svgConfig) => {
+                  draft.endOffset = parseInt(e.target.value);
                 });
               }}
               id="endOffset"
@@ -260,30 +260,32 @@ export default function ConfigPanel({
           </div>
         </div>
 
+        {/* ============================= Gap stroke dasharray ============================= */}
 
         <div>
-            <label
-              htmlFor="dasharray"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >
-              Gap
-            </label>
-            <input
-              type="number"
-              min="0"
-              id="dasharray"
-              value={svgOption.strokeDasharray}
-              onChange={(e) => {
-                setSvgOptions((draft: any) => {
-                  draft["strokeDasharray"] = e.target.value;
-                });
-              }}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="150"
-              required
-            />
-          </div>
+          <label
+            htmlFor="dasharray"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
+            Gap
+          </label>
+          <input
+            type="number"
+            min="0"
+            id="dasharray"
+            value={svgOption.strokeDasharray}
+            onChange={(e) => {
+              setSvgOptions((draft: svgConfig) => {
+                draft.strokeDasharray = parseInt(e.target.value);
+              });
+            }}
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="150"
+            required
+          />
+        </div>
 
+        {/* ============================= Caution alert ============================= */}
 
         <div
           className="flex items-center p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400"
@@ -304,7 +306,8 @@ export default function ConfigPanel({
             offset
           </div>
         </div>
-        {/* ================ */}
+
+        {/* ======= END ========= */}
       </form>
     </div>
   );

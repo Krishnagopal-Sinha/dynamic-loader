@@ -3,28 +3,32 @@ import "./loader.css";
 
 export default function LoaderPreview({ svgOption }: { svgOption: svgConfig }) {
   const [lightMode, setLightMode] = useState(false);
-
+  //TODO: add line cap to config panel
   const finalSvgHtml = svgOption.svgHtml.replace(
     "<svg",
     `<svg style="
-height: ${svgOption.height};
-width: ${svgOption.width};
-animation-name: load;
-animation-iteration-count: infinite;
-animation-timing-function: ${svgOption.animationCurve};
-animation-duration: ${svgOption.animationDuration}s;
-fill: ${svgOption.fillColor};
-stroke-dasharray: ${svgOption.strokeDasharray};
-stroke-width: ${svgOption.strokeWidth};
-stroke: ${svgOption.strokeColor};
---startingOffset: ${svgOption.startOffset};
---endingOffset: ${svgOption.endOffset};
+  
+      animation-name: loader;
+      animation-iteration-count: infinite;
+      animation-timing-function: ${svgOption.animationCurve};
+      animation-duration: ${svgOption.animationDuration}s;
+      fill: ${svgOption.fillColor};
+      stroke-dasharray: ${svgOption.strokeDasharray};
+      stroke-width: ${svgOption.strokeWidth};
+      stroke: ${svgOption.strokeColor};
+      --startingOffset: ${svgOption.startOffset};
+      --endingOffset: ${svgOption.endOffset};
+      zoom: ${svgOption.scale};
+      stroke-linecap: round;
+      overflow:visible;
+      display:block;
+      margin:auto;
 "`
   );
 
   return (
     <div className="m-6 mb-0">
-      <label className="inline-flex items-center cursor-pointer ml-4">
+      <label className="inline-flex items-center cursor-pointer ml-2 mb-4">
         <input
           type="checkbox"
           value=""
@@ -40,7 +44,12 @@ stroke: ${svgOption.strokeColor};
       </label>
 
       <div
-        className={`rounded-lg ${lightMode ? "bg-white" : "bg-black"}  p-6 m-2`}
+        className={`rounded-lg ${
+          lightMode ? "bg-white" : "bg-black"
+        } max-h-fit  `}
+        style={{
+          padding: `${svgOption.innerPadding}px`,
+        }}
         dangerouslySetInnerHTML={{
           __html: finalSvgHtml,
         }}

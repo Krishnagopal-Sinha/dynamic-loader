@@ -38,52 +38,24 @@ export default function ConfigPanel({
             }}
           />
         </div>
+ {/* ============================= Scale and Gap============================= */}
 
-        {/* ============================= Animation Curve ============================= */}
-
-        <div>
-          <label
-            htmlFor="animation-curve"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
-            Animation Timing Curve
-          </label>
-          <select
-            id="animation-curve"
-            value={svgOption.animationCurve}
-            onChange={(e) => {
-              setSvgOptions((draft: svgConfig) => {
-                draft["animationCurve"] = e.target.value;
-              });
-            }}
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 bg-opacity-90 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          >
-            <option value="linear">Linear</option>
-            <option value="ease">Ease</option>
-            <option value="ease-in">Ease In</option>
-            <option value="ease-out">Ease Out</option>
-            <option value="ease-in-out">Ease In & Out</option>
-            <option value="step-end">None</option>
-          </select>
-        </div>
-        {/* ============================= Loader height and width ============================= */}
-
-        <div className="flex flex-col sm:flex-row justify-between gap-4">
+ <div className="flex flex-col sm:flex-row justify-between gap-4">
           <div>
             <label
-              htmlFor="height"
+              htmlFor="dasharray"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
-              Loader Height
+              Gap
             </label>
             <input
               type="number"
               min="0"
-              id="height"
-              value={svgOption.height}
+              id="dasharray"
+              value={svgOption.strokeDasharray}
               onChange={(e) => {
                 setSvgOptions((draft: svgConfig) => {
-                  draft.height = parseInt(e.target.value);
+                  draft.strokeDasharray = parseInt(e.target.value);
                 });
               }}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -91,23 +63,76 @@ export default function ConfigPanel({
               required
             />
           </div>
+
           <div>
             <label
               htmlFor="number"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
-              Loader Width
+              Zoom
+            </label>
+            <input
+              type="number"
+              min="0.01"
+              step="0.01"
+              value={svgOption.scale}
+              onChange={(e) => {
+                setSvgOptions((draft: svgConfig) => {
+                  draft.scale = parseFloat(e.target.value);
+                });
+              }}
+              id="width"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="150"
+              required
+            />
+          </div>
+        </div>
+        {/* ============================= Animation Curve ============================= */}
+        <div className="flex flex-col sm:flex-row justify-between gap-4">
+          <div>
+            <label
+              htmlFor="animation-curve"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >
+              Animation Timing Curve
+            </label>
+            <select
+              id="animation-curve"
+              value={svgOption.animationCurve}
+              onChange={(e) => {
+                setSvgOptions((draft: svgConfig) => {
+                  draft["animationCurve"] = e.target.value;
+                });
+              }}
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 bg-opacity-90 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            >
+              <option value="linear">Linear</option>
+              <option value="ease">Ease</option>
+              <option value="ease-in">Ease In</option>
+              <option value="ease-out">Ease Out</option>
+              <option value="ease-in-out">Ease In & Out</option>
+              <option value="step-end">None</option>
+            </select>
+          </div>
+
+          <div>
+            <label
+              htmlFor="innerPadding"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >
+              Border Padding
             </label>
             <input
               type="number"
               min="0"
-              value={svgOption.width}
+              id="innerPadding"
+              value={svgOption.innerPadding}
               onChange={(e) => {
                 setSvgOptions((draft: svgConfig) => {
-                  draft.width = parseInt(e.target.value);
+                  draft.innerPadding = parseInt(e.target.value);
                 });
               }}
-              id="width"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="150"
               required
@@ -260,30 +285,7 @@ export default function ConfigPanel({
           </div>
         </div>
 
-        {/* ============================= Gap stroke dasharray ============================= */}
-
-        <div>
-          <label
-            htmlFor="dasharray"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
-            Gap
-          </label>
-          <input
-            type="number"
-            min="0"
-            id="dasharray"
-            value={svgOption.strokeDasharray}
-            onChange={(e) => {
-              setSvgOptions((draft: svgConfig) => {
-                draft.strokeDasharray = parseInt(e.target.value);
-              });
-            }}
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="150"
-            required
-          />
-        </div>
+       
 
         {/* ============================= Caution alert ============================= */}
 

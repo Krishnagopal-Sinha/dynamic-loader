@@ -1,4 +1,4 @@
-@keyframes load {
+@keyframes loader {
   0% {
     stroke-dashoffset: var(--startingOffset, 0px);
   }

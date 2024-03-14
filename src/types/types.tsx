@@ -10,4 +10,6 @@ type svgConfig = {
   endOffset: number;
   fillColor: string;
   svgHtml: string;
+  scale:number;
+  innerPadding:number;
 };

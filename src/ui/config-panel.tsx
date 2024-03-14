@@ -9,7 +9,7 @@ export default function ConfigPanel({
   setSvgOptions: any;
 }) {
   return (
-    <div className="mx-6 mt-3 mb-6">
+    <div className="mx-6 mt-3 mb-6 w-4/5">
       <form className="space-y-6" action="#">
         {/* max-w-sm mx-auto */}
         <h5 className="text-2xl font-semibold text-gray-900 dark:text-white">
@@ -38,9 +38,9 @@ export default function ConfigPanel({
             }}
           />
         </div>
- {/* ============================= Scale and Gap============================= */}
+        {/* ============================= Scale and Gap============================= */}
 
- <div className="flex flex-col sm:flex-row justify-between gap-4">
+        <div className="flex flex-col sm:flex-row justify-between gap-4">
           <div>
             <label
               htmlFor="dasharray"
@@ -222,10 +222,11 @@ export default function ConfigPanel({
             <input
               type="number"
               min="0"
+              step={0.5}
               value={svgOption.strokeWidth}
               onChange={(e) => {
                 setSvgOptions((draft: svgConfig) => {
-                  draft.strokeWidth = parseInt(e.target.value);
+                  draft.strokeWidth = parseFloat(e.target.value);
                 });
               }}
               id="strokeWidth"
@@ -284,8 +285,6 @@ export default function ConfigPanel({
             />
           </div>
         </div>
-
-       
 
         {/* ============================= Caution alert ============================= */}
 

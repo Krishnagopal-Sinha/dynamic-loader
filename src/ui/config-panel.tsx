@@ -288,7 +288,7 @@ export default function ConfigPanel({
         {/* ============================= Caution alert ============================= */}
 
         <div
-          className="flex items-center p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400"
+          className="flex items-center p-4 mb-4 text-sm text-blue-800 border border-blue-300 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800"
           role="alert"
         >
           <svg
@@ -303,7 +303,14 @@ export default function ConfigPanel({
           <span className="sr-only">Info</span>
           <div>
             Caution: ensure end offset is ~100x or more the value of start
-            offset
+            offset. You can try copying svg code{" "}
+            <a
+              href="https://www.reshot.com/free-svg-icons/logo/"
+              target="_blank"
+              className="font-semibold underline hover:no-underline"
+            >
+              available here.
+            </a>
           </div>
         </div>
 

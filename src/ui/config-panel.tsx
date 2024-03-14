@@ -1,3 +1,4 @@
+import DOMPurify from "dompurify";
 import { ImmerHook } from "use-immer";
 
 export default function ConfigPanel({
@@ -8,19 +9,43 @@ export default function ConfigPanel({
   setSvgOptions: any;
 }) {
   return (
-    <div className="mx-6">
-
+    <div className="mx-6 mt-3">
       <form className="space-y-6" action="#">
         {/* max-w-sm mx-auto */}
-        <h5 className="text-xl font-medium text-gray-900 dark:text-white">
+        <h5 className="text-2xl font-semibold text-gray-900 dark:text-white">
           Customize Loader
         </h5>
+        {/* ============================= Custom SVG Path ============================= */}
+
+        <div>
+          <label
+            htmlFor="path"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-4"
+          >
+            Custom SVG Path
+          </label>
+          <input
+            type="text"
+            id="path"
+            value={svgOption.pathHtml}
+            onChange={(e) => {
+              const sanitizedPath = DOMPurify.sanitize(e.target.value);
+              setSvgOptions((draft: any) => {
+                svgOption["pathHtml"] = sanitizedPath;
+              });
+            }}
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="<path>...</path>"
+          />
+        </div>
+        {/* ============================= Animation Curve ============================= */}
+
         <div>
           <label
             htmlFor="animation-curve"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
-            Animation timing curve
+            Animation Timing Curve
           </label>
           <select
             id="animation-curve"

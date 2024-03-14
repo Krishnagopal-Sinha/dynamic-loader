@@ -29,12 +29,11 @@ export default function LoaderPreview({ svgOption }: { svgOption: svgConfig }) {
       return `<style>${cleanedStyleContent}</style>`;
     }
   );
-  
+
   //add styles dynamically
   const finalSvgHtml = cleanFill.replace(
     "<svg",
     `<svg style="
-  
       animation-name: loader;
       animation-iteration-count: infinite;
       animation-timing-function: ${svgOption.animationCurve};

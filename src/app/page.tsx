@@ -77,7 +77,7 @@ z"
     width: 150,
     strokeColor: "#ff2600",
     fillColor: "none",
-    strokeWidth: 20,
+    strokeWidth: 5,
     animationDuration: 20,
     animationCurve: "linear",
     startOffset: 0,

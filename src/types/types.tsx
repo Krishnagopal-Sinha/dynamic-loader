@@ -9,5 +9,5 @@ type svgConfig = {
   startOffset: number;
   endOffset: number;
   fillColor: string;
-  pathHtml: string;
+  svgHtml: string;
 };

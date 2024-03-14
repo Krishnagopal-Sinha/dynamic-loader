@@ -38,10 +38,10 @@ export default function ConfigPanel({
             }}
           />
         </div>
-        {/* ============================= Scale and Gap============================= */}
+        {/* ============================= Scale and Gap ============================= */}
 
         <div className="flex flex-col sm:flex-row justify-between gap-4">
-          <div>
+          <div className="flex-1">
             <label
               htmlFor="dasharray"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -64,7 +64,7 @@ export default function ConfigPanel({
             />
           </div>
 
-          <div>
+          <div className="flex-1">
             <label
               htmlFor="number"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -90,7 +90,7 @@ export default function ConfigPanel({
         </div>
         {/* ============================= Animation Curve ============================= */}
         <div className="flex flex-col sm:flex-row justify-between gap-4">
-          <div>
+          <div className="flex-1">
             <label
               htmlFor="animation-curve"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -116,7 +116,7 @@ export default function ConfigPanel({
             </select>
           </div>
 
-          <div>
+          <div className="flex-1">
             <label
               htmlFor="innerPadding"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -164,7 +164,7 @@ export default function ConfigPanel({
               required
             />
           </div>
-          <div className="w-full sm:w-auto">
+          <div >
             <label
               htmlFor="strokeColor"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -190,7 +190,7 @@ export default function ConfigPanel({
         {/* ============================= Stroke width and animation duration ============================= */}
 
         <div className="flex flex-col sm:flex-row justify-between gap-4">
-          <div>
+          <div  className="flex-1">
             <label
               htmlFor="animDuration"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -212,7 +212,7 @@ export default function ConfigPanel({
               required
             />
           </div>
-          <div>
+          <div className="flex-1">
             <label
               htmlFor="strokeWidth"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -240,7 +240,7 @@ export default function ConfigPanel({
         {/* ============================= Stroke width and animation duration ============================= */}
 
         <div className="flex flex-col sm:flex-row justify-between gap-4">
-          <div>
+          <div className="flex-1">
             <label
               htmlFor="startOffset"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -262,7 +262,7 @@ export default function ConfigPanel({
               required
             />
           </div>
-          <div>
+          <div className="flex-1">
             <label
               htmlFor="endOffset"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"

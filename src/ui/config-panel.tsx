@@ -9,7 +9,7 @@ export default function ConfigPanel({
   setSvgOptions: any;
 }) {
   return (
-    <div className="mx-6 mt-3 mb-6 w-4/5">
+    <div className="mx-6 mt-10 mb-6 md:w-4/5 ">
       <form className="space-y-6" action="#">
         {/* max-w-sm mx-auto */}
         <h5 className="text-2xl font-semibold text-gray-900 dark:text-white">

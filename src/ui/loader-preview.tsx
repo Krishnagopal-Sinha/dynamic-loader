@@ -52,7 +52,7 @@ export default function LoaderPreview({ svgOption }: { svgOption: svgConfig }) {
   );
 
   return (
-    <div className=" m-6 mb-6 md:w-2/5 md:h-screen overflow-scroll pr-6 ">
+    <div className=" m-6 mb-6 md:w-2/5 overflow-scroll ">
       <div className="text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
         <ul className="flex  -mb-px mx-4">
           <li className="me-2">

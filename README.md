@@ -2,7 +2,7 @@
 
 Create dynamic brand specific loader easily!
 
-Here's a neat demo: https://youtu.be/Nif5xtwmpl8
+Here's a neat demo: [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/Nif5xtwmpl8/0.jpg)](https://www.youtube.com/watch?v=Nif5xtwmpl8)
 
 ### Getting Started
 

@@ -2,6 +2,8 @@
 
 Create dynamic brand specific loader easily!
 
+Here's a neat demo: https://youtu.be/Nif5xtwmpl8
+
 ### Getting Started
 
 First, run the development server:
